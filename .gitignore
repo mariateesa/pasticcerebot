@@ -1,0 +1,28 @@
+# Variabili d'ambiente — MAI pubblicare il token Telegram
+.env
+
+# File generati a runtime
+chat_ids.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Script di utility (non necessario nel repo)
+fix_ricette.py
