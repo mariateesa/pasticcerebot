@@ -117,6 +117,37 @@ pasticcerebot/
 
 ---
 
+## Test
+
+Il progetto include 38 test automatici divisi in due file.
+
+```bash
+# Esegui tutti i test
+python -m pytest test_rag.py test_agent.py -v
+
+# Solo il motore di ricerca
+python -m pytest test_rag.py -v
+
+# Solo la logica dell'agente
+python -m pytest test_agent.py -v
+```
+
+**`test_rag.py`** (27 test) — verifica il motore RAG:
+- Caricamento corretto di tutti i file
+- Calcolo TF e similarità coseno
+- Ricerca per nome ricetta e per ingrediente
+- Priorità del match per nome sul coseno
+- Casi limite (query vuota, query irrilevante)
+
+**`test_agent.py`** (11 test) — verifica la logica dell'agente senza avviare Ollama:
+- Isolamento della memoria per chat_id
+- Reset della conversazione
+- Struttura dei messaggi inviati all'LLM
+- Iniezione del contesto RAG nel prompt
+- Gestione della storia multi-turno
+
+---
+
 ## Aggiungere ricette
 
 Crea un file `.txt` in `data/ricette/` con il nome della ricetta usando underscore al posto degli spazi (es. `creme_caramel.txt`). Il bot la rileva automaticamente al prossimo messaggio, senza riavvio.
